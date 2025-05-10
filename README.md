@@ -1,149 +1,164 @@
-# Silque E-commerce Platform
+# Silque
 
-## Project Overview
-
-Silque is a modern, full-stack e-commerce web application designed for scalability, performance, and a seamless user experience. It features a robust backend built with Node.js, Express, and MongoDB, and a fast, interactive frontend using React, Vite, and TailwindCSS. The platform supports user authentication, product management, shopping cart, order processing, payment integration, and real-time analytics. It leverages cloud services for image hosting (Cloudinary), caching (Upstash Redis), and payment processing (Stripe), making it production-ready for real-world deployments.
+A full-stack e-commerce web application built with **Node.js**, **Express**, **MongoDB**, and **React** (Vite + Tailwind CSS). Silque offers browsing, cart management, coupon codes, secure payments, and an admin dashboard with analytics.
 
 ---
 
-## In-Depth Project Structure
+## Table of Contents
 
-```
-E-commerce/
-│
-├── backend/                        # Node.js/Express backend API
-│   ├── controllers/                # Route controllers (business logic)
-│   │   ├── analytics.controller.js # Analytics endpoints
-│   │   ├── auth.controller.js      # Auth (login, signup, logout, tokens)
-│   │   ├── cart.controller.js      # Cart operations
-│   │   ├── coupon.controller.js    # Coupon management
-│   │   ├── payment.controller.js   # Stripe payment integration
-│   │   └── product.controller.js   # Product CRUD
-│   ├── lib/                        # Utility libraries/services
-│   │   ├── cloudinary.js           # Cloudinary image upload config
-│   │   ├── db.js                   # MongoDB connection
-│   │   ├── redis.js                # Upstash Redis client
-│   │   └── stripe.js               # Stripe client setup
-│   ├── middleware/                 # Express middleware (auth, error handling)
-│   │   └── auth.middleware.js      # JWT authentication middleware
-│   ├── models/                     # Mongoose models (data schemas)
-│   │   ├── coupon.model.js         # Coupon schema
-│   │   ├── order.model.js          # Order schema
-│   │   ├── product.model.js        # Product schema
-│   │   └── user.model.js           # User schema (with password hashing)
-│   ├── routes/                     # Express route definitions
-│   │   ├── analytics.route.js      # /api/analytics
-│   │   ├── auth.route.js           # /api/auth
-│   │   ├── cart.route.js           # /api/cart
-│   │   ├── coupon.route.js         # /api/coupons
-│   │   ├── payment.route.js        # /api/payments
-│   │   └── product.route.js        # /api/products
-│   └── server.js                   # Main backend entry point (Express app)
-│
-├── frontend/                       # React frontend (Vite, TailwindCSS)
-│   ├── public/                     # Static assets (logo, images)
-│   ├── src/
-│   │   ├── components/             # Reusable UI components
-│   │   │   ├── Navbar.jsx          # Navigation bar
-│   │   │   ├── ProductCard.jsx     # Product display card
-│   │   │   ├── CartItem.jsx        # Cart item component
-│   │   │   ├── LoadingSpinner.jsx  # Loading indicator
-│   │   │   └── ...                 # Other UI components
-│   │   ├── lib/                    # Frontend utilities
-│   │   │   ├── axios.js            # Axios instance/config
-│   │   │   └── theme.js            # Theme toggling logic
-│   │   ├── pages/                  # Page-level components (route targets)
-│   │   │   ├── HomePage.jsx        # Home page
-│   │   │   ├── LoginPage.jsx       # Login form
-│   │   │   ├── SignUpPage.jsx      # Signup form
-│   │   │   ├── AdminPage.jsx       # Admin dashboard
-│   │   │   ├── CartPage.jsx        # Shopping cart
-│   │   │   ├── CategoryPage.jsx    # Product category view
-│   │   │   ├── ProductPage.jsx     # Product details
-│   │   │   ├── PurchaseSuccessPage.jsx # Payment success
-│   │   │   └── PurchaseCancelPage.jsx  # Payment cancel
-│   │   ├── stores/                 # Zustand state stores
-│   │   │   ├── useUserStore.js     # User/auth state
-│   │   │   ├── useCartStore.js     # Cart state
-│   │   │   ├── useProductStore.js  # Product state
-│   │   │   └── useShopStore.js     # Shop/global state
-│   │   ├── App.jsx                 # Main React app (routing, layout)
-│   │   ├── main.jsx                # React entry point
-│   │   └── index.css               # Global styles (TailwindCSS)
-│   ├── package.json                # Frontend dependencies/scripts
-│   ├── vite.config.js              # Vite config (proxy, plugins)
-│   ├── tailwind.config.js          # TailwindCSS config
-│   └── postcss.config.js           # PostCSS config
-│
-├── Products/                       # Example product images
-│   ├── Jacket.jpg
-│   ├── shoes.jpg
-│   └── t-shirt.avif
-│
-├── .env                            # Environment variables (API keys, secrets)
-├── package.json                    # Root dependencies/scripts (backend, build)
-└── README.md                       # Project documentation
+- [Project Structure](#project-structure)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Clone the Repo](#clone-the-repo)
+  - [Environment Variables](#environment-variables)
+  - [Install Dependencies & Run](#install-dependencies--run)
+- [Deployment](#deployment)
+- [License](#license)
+
+---
+
+## Project Structure
+
+```bash
+Silque/
+├── backend/                  # REST API server (Node.js + Express)
+│   ├── controllers/          # Route handlers
+│   ├── lib/                  # Cloudinary, Stripe, DB, Redis setup
+│   ├── middleware/           # Authentication middleware
+│   ├── models/               # Mongoose schemas
+│   ├── routes/               # Express routes
+│   └── server.js             # Entry point
+├── frontend/                 # React client (Vite + Tailwind)
+│   ├── public/               # Static assets & product images
+│   ├── src/                  # App code (components, pages, stores, lib)
+│   ├── index.html
+│   ├── tailwind.config.js
+│   └── vite.config.js        # Dev server config
+├── package.json              # Root scripts & dependencies
+└── README.md                 # This file
 ```
 
 ---
 
 ## Features
 
-- **User Authentication:** Signup, login, JWT-based sessions, refresh tokens, secure cookies.
-- **Admin Dashboard:** Product management, analytics, coupon creation.
-- **Product Catalog:** Category browsing, product details, search, recommendations.
-- **Shopping Cart:** Add/remove items, quantity management, persistent cart.
-- **Checkout & Payments:** Stripe integration for secure payments, order confirmation, cancel flow.
-- **Order Management:** Order history, admin order view.
-- **Cloudinary Integration:** Fast, reliable image uploads and CDN delivery.
-- **Upstash Redis:** Caching for performance, rate limiting, session storage.
-- **Analytics:** Real-time sales and user analytics for admins.
-- **Responsive UI:** Mobile-first, modern design with TailwindCSS and Framer Motion.
-- **State Management:** Zustand for global state (user, cart, products).
-- **API Security:** CORS, environment-based secrets, secure cookies, input validation.
+- Responsive UI with Tailwind CSS
+- Browse products by category
+- Search and filter products
+- Add/remove items from cart
+- Secure Stripe payment integration
+- Coupon code promotion support
+- User authentication (signup/login)
+- User profile & order history
+- Recommended products (People Also Bought)
+- Admin dashboard:
+  - Product management (create/update/delete)
+  - Sales & user analytics
+  - Coupon management
 
 ---
 
-## Development & Deployment Notes
+## Screenshots
 
-- **Case Sensitivity:** All import paths and filenames must match exactly (Linux is case-sensitive).
-- **Environment Variables:** Store all secrets and API keys in `.env` (never commit secrets).
-- **Build Scripts:** The root `package.json` manages both backend and frontend build/install.
-- **Deployment:** Ready for Vercel, Render, or any Node.js-compatible host.
+<details>
+  <summary>🔽 Screenshots</summary>
+
+| Feature                | Screenshot                                            |
+|------------------------|-------------------------------------------------------|
+| Home Page              | ![Home](screenshots/homepage.png)                     |
+| Category Page          | ![Category](screenshots/category.png)                 |
+| Product Detail         | ![Product](screenshots/product-page.png)              |
+| Cart & Checkout        | ![Cart](screenshots/cart.png)                         |
+| Cart & Checkout        | ![Checkout](screenshots/checkout.png)                 |
+| Purchase Success       | ![Purchase Success](screenshots/purchase-success.png) |
+| Purchase Cancel        | ![Purchase Cancel](screenshots/purchase-cancel.png)   |
+| Admin Dashboard        | ![Admin](screenshots/admin-dashboard.png)             |
+| Create Product Form    | ![Create Product](screenshots/create-product.png)     |
+| Analytics Tab          | ![Analytics](screenshots/analytics.png)               |
+| Dark Theme             | ![Dark Theme](screenshots/light-theme.png)            |
+| Light Theme            | ![Light Theme](screenshots/dark-theme.png)            |
+
+
+</details>
 
 ---
 
 ## Getting Started
 
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/PrateekKumar15/Silque.git
-   cd Silque
-   ```
-2. **Install backend dependencies:**
-   ```sh
-   npm install
-   ```
-3. **Install frontend dependencies:**
-   ```sh
-   cd frontend
-   npm install
-   cd ..
-   ```
-4. **Environment variables:**
-   - Copy `.env.example` to `.env` and fill in your secrets (MongoDB URI, JWT secrets, Stripe keys, etc.)
-5. **Run the backend server:**
-   ```sh
-   npm run dev
-   ```
-6. **Run the frontend (in a new terminal):**
-   ```sh
-   cd frontend
-   npm run dev
-   ```
+### Prerequisites
+
+- Node.js (v16+)
+- npm or yarn
+- MongoDB instance (local or Atlas)
+- Redis server
+
+### Clone the Repo
+
+```powershell
+git clone https://github.com/your-username/silque.git
+cd silque
+```
+
+### Environment Variables
+
+Create a single `.env` file in the project root with the following:
+
+```ini
+PORT=5000
+MONGO_URI=<your-mongodb-connection-string>
+JWT_SECRET=<your-jwt-secret>
+CLOUDINARY_CLOUD_NAME=<cloud_name>
+CLOUDINARY_API_KEY=<api_key>
+CLOUDINARY_API_SECRET=<api_secret>
+STRIPE_SECRET_KEY=<stripe_secret_key>
+REDIS_URL=<redis_connection_string>
+VITE_API_URL=http://localhost:5000/api
+```
+
+### Install Dependencies & Run
+
+```powershell
+# Backend
+cd backend
+npm install
+npm run dev
+
+# In a new terminal, Frontend
+cd frontend
+npm install
+npm run dev
+```
+
+Your apps will be running at:
+
+- Backend API: http://localhost:5000/api
+- Frontend: http://localhost:5173
 
 ---
 
-## License
+## Deployment
 
-This project is licensed under the ISC License.
+### Backend
+
+1. Push to a Git hosting (GitHub, GitLab).
+2. Use platforms like **Heroku**, **Render**, or **AWS Elastic Beanstalk**.
+3. Set the same env vars in platform settings.
+4. Deploy via Git or CLI.
+
+### Frontend
+
+1. Build static files:
+   ```powershell
+   cd frontend
+   npm run build
+   ```
+2. Host on **Netlify**, **Vercel**, or **Firebase Hosting**.
+3. Point to `dist/` folder.
+
+---
+
+Made with ❤️ by [Prateek Kumar](https://github.com/PrateekKumar15)
+
+
