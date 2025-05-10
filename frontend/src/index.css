@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    /* Apply dark mode styles directly using the .dark class on html */
+  }
+  html.dark body {
+    @apply bg-dark-background text-dark-foreground;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .mix-blend-multiply {
+    mix-blend-mode: multiply;
+  }
+
+  html.dark .mix-blend-multiply {
+    mix-blend-mode: normal;
+  }
+}
