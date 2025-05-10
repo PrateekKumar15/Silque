@@ -67,18 +67,18 @@ Silque/
 
 | Feature                | Screenshot                                              |
 |------------------------|---------------------------------------------------------|
-| Home Page              | ![Home](./screenshots/homepage.png)                     |
-| Category Page          | ![Category](./screenshots/category.png)                 |
-| Product Detail         | ![Product](./screenshots/product-page.png)              |
-| Cart & Checkout        | ![Cart](./screenshots/cart.png)                         |
-| Cart & Checkout        | ![Checkout](./screenshots/checkout.png)                 |
-| Purchase Success       | ![Purchase Success](./screenshots/purchase-success.png) |
-| Purchase Cancel        | ![Purchase Cancel](./screenshots/purchase-cancel.png)   |
-| Admin Dashboard        | ![Admin](./screenshots/admin-dashboard.png)             |
-| Create Product Form    | ![Create Product](./screenshots/create-product.png)     |
-| Analytics Tab          | ![Analytics](./screenshots/analytics.png)               |
-| Dark Theme             | ![Dark Theme](./screenshots/light-theme.png)            |
-| Light Theme            | ![Light Theme](./screenshots/dark-theme.png)            |
+| Home Page              | ![Home](./Screenshots/homepage.png)                     |
+| Category Page          | ![Category](./Screenshots/category.png)                 |
+| Product Detail         | ![Product](./Screenshots/product-page.png)              |
+| Cart & Checkout        | ![Cart](./Screenshots/cart.png)                         |
+| Cart & Checkout        | ![Checkout](./Screenshots/checkout.png)                 |
+| Purchase Success       | ![Purchase Success](./Screenshots/purchase-success.png) |
+| Purchase Cancel        | ![Purchase Cancel](./Screenshots/purchase-cancel.png)   |
+| Admin Dashboard        | ![Admin](./Screenshots/admin-dashboard.png)             |
+| Create Product Form    | ![Create Product](./Screenshots/create-product.png)     |
+| Analytics Tab          | ![Analytics](./Screenshots/analytics.png)               |
+| Dark Theme             | ![Dark Theme](./Screenshots/light-theme.png)            |
+| Light Theme            | ![Light Theme](./Screenshots/dark-theme.png)            |
 
 
 </details>
