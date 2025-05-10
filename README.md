@@ -65,20 +65,20 @@ Silque/
 <details>
   <summary>🔽 Screenshots</summary>
 
-| Feature                | Screenshot                                            |
-|------------------------|-------------------------------------------------------|
-| Home Page              | ![Home](screenshots/homepage.png)                     |
-| Category Page          | ![Category](screenshots/category.png)                 |
-| Product Detail         | ![Product](screenshots/product-page.png)              |
-| Cart & Checkout        | ![Cart](screenshots/cart.png)                         |
-| Cart & Checkout        | ![Checkout](screenshots/checkout.png)                 |
-| Purchase Success       | ![Purchase Success](screenshots/purchase-success.png) |
-| Purchase Cancel        | ![Purchase Cancel](screenshots/purchase-cancel.png)   |
-| Admin Dashboard        | ![Admin](screenshots/admin-dashboard.png)             |
-| Create Product Form    | ![Create Product](screenshots/create-product.png)     |
-| Analytics Tab          | ![Analytics](screenshots/analytics.png)               |
-| Dark Theme             | ![Dark Theme](screenshots/light-theme.png)            |
-| Light Theme            | ![Light Theme](screenshots/dark-theme.png)            |
+| Feature                | Screenshot                                              |
+|------------------------|---------------------------------------------------------|
+| Home Page              | ![Home](./screenshots/homepage.png)                     |
+| Category Page          | ![Category](./screenshots/category.png)                 |
+| Product Detail         | ![Product](./screenshots/product-page.png)              |
+| Cart & Checkout        | ![Cart](./screenshots/cart.png)                         |
+| Cart & Checkout        | ![Checkout](./screenshots/checkout.png)                 |
+| Purchase Success       | ![Purchase Success](./screenshots/purchase-success.png) |
+| Purchase Cancel        | ![Purchase Cancel](./screenshots/purchase-cancel.png)   |
+| Admin Dashboard        | ![Admin](./screenshots/admin-dashboard.png)             |
+| Create Product Form    | ![Create Product](./screenshots/create-product.png)     |
+| Analytics Tab          | ![Analytics](./screenshots/analytics.png)               |
+| Dark Theme             | ![Dark Theme](./screenshots/light-theme.png)            |
+| Light Theme            | ![Light Theme](./screenshots/dark-theme.png)            |
 
 
 </details>
